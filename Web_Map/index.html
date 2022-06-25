@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>КХУМАЛО:ГОРОД КРАСНОКАМСК</title>
+<!--
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=bd738319-7362-464e-ad3b-e26cc4b53552&lang=ru_RU" type="text/javascript">
+-->
+  <link rel="stylesheet" href="./libs/v6.14.1-dist/ol.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-1">
+      <div class="sidebar">
+        <h2>Базовые слои</h2>
+        <input type="radio" name="baseLayerRadioButton" value="OSMStand" checked>OSM Standard<br>
+        <input type="radio" name="baseLayerRadioButton" value="OSMHuman">OSM Humanitarian<br>
+        <input type="radio" name="baseLayerRadioButton" value="BingMapsSAT">Bing Satellite<br>
+        <input type="radio" name="baseLayerRadioButton" value="BingMapsSATLabels">Bing Satellite (Labels)<br>
+        <input type="radio" name="baseLayerRadioButton" value="BingMapsRoad">Bing Maps Road<br>
+        <input type="radio" name="baseLayerRadioButton" value="YandexStand">Yandex Standard<br>
+        <input type="radio" name="baseLayerRadioButton" value="YandexSAT">Yandex Satellite<br>
+        <input type="radio" name="baseLayerRadioButton" value="StamenTerrain">Stamen Terrain<br>
+        <input type="radio" name="baseLayerRadioButton" value="StamenWatercolor">Stamen Watercolor<br>
+        <input type="radio" name="baseLayerRadioButton" value="StamenToner">Stamen Toner<br>
+        <input type="radio" name="baseLayerRadioButton" value="LocalWMS">Local WMS (GeoServer)<br>
+        <input type="radio" name='baseLayerRadioButton' value='OSMVectorTile'>OSM Vector Tiles<br>
+
+        <h2>Thematics</h2>
+        <input type="checkbox" name='rasterLayerCheckBox' value='Roads'>Дороги<br>
+        <input type="checkbox" name='rasterLayerCheckBox' value='Vegetation'>Растительность<br>
+        <input type="checkbox" name='rasterLayerCheckBox' value='tourism'>Туризм<br>
+        <input type="checkbox" name='rasterLayerCheckBox' value='shops'>Магазины<br>
+        <input type="checkbox" name='rasterLayerCheckBox' value='sports'>Спорт<br>
+        <!-- <input type="checkbox" name='rasterLayerCheckBox' value='TileDebugLayer'>Тайловая сеть<br>
+        <input type="checkbox" name='rasterLayerCheckBox' value='Graticule'>Координатная сеть<br> -->
+        <!-- <input type="checkbox" name='rasterLayerCheckBox' value='ImageStatic-2'>Локация Perm-01<br> -->
+      </div>
+    </div>
+    <div class="grid-2">
+      <div id='popup-container' class='popup-container'>
+        <p id='popup-coordinates' class='popup-coordinates'></p>
+      </div>
+      <div id='js-map' class='map'></div>
+    </div>
+    <div class='overlay-container'>
+      <span class='overlay-text' id='local-forestry-name'></span><br>
+      <span class='overlay-text' id='local-forestry-area'></span><br>
+      <span class='overlay-text' id='point-name'></span><br>
+    </div>
+    <div class = 'overlay-container-tourism'>
+      <span class='overlay-text' id='tourist-facility-info'></span><br>
+    </div>
+    <div class = 'overlay-container-Shops'>
+      <span class='overlay-text' id='shop-name-info'></span><br>
+      <span class='overlay-text' id='shop-type-info'></span><br>
+    </div>
+    <div class = 'overlay-container-Vegetation'>
+      <span class='overlay-text' id='vegetation-type-info'></span><br>
+      <span class='overlay-text' id='vegetation-OSMID-info'></span><br>
+    </div>
+    <div class = 'overlay-container-sport'>
+      <span class='overlay-text' id='sport-facility-info'></span><br>
+    </div>
+  </div>
+  <script src='./libs/v6.14.1-dist/ol.js'></script>
+  <!--
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.12.0/build/ol.js"></script>
+  -->
+  <script src="https://cdn.maptiler.com/ol-mapbox-style/v5.0.2/olms.js"></script>
+  <script src='./libs/proj4js/proj4.js'></script>
+  <script src='./libs/proj4js/proj4-src.js'></script>
+  <script src='./main.js'></script>
+</body>
+</html>

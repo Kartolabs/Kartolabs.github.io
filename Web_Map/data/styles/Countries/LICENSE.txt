@@ -1,0 +1,13 @@
+This document sets forth the license for the items included in this archive.
+
+STYLE
+
+You are licensed to use the style or its derivate for serving map tiles
+exclusively with MapTiler Server or MapTiler Cloud and in accordance with their
+licenses and terms set forth at https://www.maptiler.com/server/license/ and
+https://www.maptiler.com/cloud/terms/. The style must not be used with
+any other software or service.
+
+Please ensure that you comply with the license restrictions above, however, if
+you plan to use the style in a different way or with a different software,
+contact us at sales@maptiler.com.

@@ -1,0 +1,748 @@
+{
+  "version": 8,
+  "id": "3c6eee15-fd1c-4238-805f-d070bd77bbeb",
+  "name": "MapTiler Planet",
+  "sources": {
+    "v3": {
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key={key}",
+      "type": "vector"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#ffffff"
+      }
+    },
+    {
+      "id": "water_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "water",
+      "paint": {
+        "line-color": "rgb(136,170,238)"
+      }
+    },
+    {
+      "id": "water_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "water",
+      "paint": {
+        "circle-color": "rgb(136,170,238)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "water_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "rgb(136,170,238)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "waterway_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "waterway",
+      "paint": {
+        "line-color": "rgb(136,102,68)"
+      }
+    },
+    {
+      "id": "waterway_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "waterway",
+      "paint": {
+        "circle-color": "rgb(136,102,68)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "waterway_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "waterway",
+      "paint": {
+        "fill-color": "rgb(136,102,68)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "landcover_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "landcover",
+      "paint": {
+        "line-color": "rgb(238,102,68)"
+      }
+    },
+    {
+      "id": "landcover_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "landcover",
+      "paint": {
+        "circle-color": "rgb(238,102,68)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "landcover_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "landcover",
+      "paint": {
+        "fill-color": "rgb(238,102,68)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "landuse_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "landuse",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(85,153,255)"
+      }
+    },
+    {
+      "id": "landuse_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "landuse",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(85,153,255)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "landuse_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "landuse",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "rgb(85,153,255)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "mountain_peak_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "mountain_peak",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(85,85,136)"
+      }
+    },
+    {
+      "id": "mountain_peak_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "mountain_peak",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(85,85,136)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "mountain_peak_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "mountain_peak",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "rgb(85,85,136)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "park_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "park",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(238,102,85)"
+      }
+    },
+    {
+      "id": "park_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "park",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(238,102,85)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "park_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "park",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "rgb(238,102,85)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "boundary_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "boundary",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(153,255,85)"
+      }
+    },
+    {
+      "id": "boundary_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "boundary",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(153,255,85)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "boundary_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "boundary",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "rgb(153,255,85)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "aeroway_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "aeroway",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(221,85,204)"
+      }
+    },
+    {
+      "id": "aeroway_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "aeroway",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(221,85,204)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "aeroway_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "aeroway",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "rgb(221,85,204)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "transportation_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "transportation",
+      "paint": {
+        "line-color": "rgb(68,136,238)"
+      }
+    },
+    {
+      "id": "transportation_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "transportation",
+      "paint": {
+        "circle-color": "rgb(68,136,238)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "transportation_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "transportation",
+      "paint": {
+        "fill-color": "rgb(68,136,238)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "building_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "building",
+      "paint": {
+        "line-color": "rgb(204,221,102)"
+      }
+    },
+    {
+      "id": "building_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "building",
+      "paint": {
+        "circle-color": "rgb(204,221,102)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "building_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "building",
+      "paint": {
+        "fill-color": "rgb(204,221,102)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "water_name_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "water_name",
+      "paint": {
+        "line-color": "rgb(136,119,102)"
+      }
+    },
+    {
+      "id": "water_name_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "water_name",
+      "paint": {
+        "circle-color": "rgb(136,119,102)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "water_name_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "water_name",
+      "paint": {
+        "fill-color": "rgb(136,119,102)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "transportation_name_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "transportation_name",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgb(68,255,238)"
+      }
+    },
+    {
+      "id": "transportation_name_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "transportation_name",
+      "paint": {
+        "circle-color": "rgb(68,255,238)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "transportation_name_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "transportation_name",
+      "paint": {
+        "fill-color": "rgb(68,255,238)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "place_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "place",
+      "paint": {
+        "line-color": "rgb(204,170,136)"
+      }
+    },
+    {
+      "id": "place_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "place",
+      "paint": {
+        "circle-color": "rgb(204,170,136)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "place_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "place",
+      "paint": {
+        "fill-color": "rgb(204,170,136)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "housenumber_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "housenumber",
+      "paint": {
+        "line-color": "rgb(102,136,238)"
+      }
+    },
+    {
+      "id": "housenumber_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "housenumber",
+      "paint": {
+        "circle-color": "rgb(102,136,238)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "housenumber_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "housenumber",
+      "paint": {
+        "fill-color": "rgb(102,136,238)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "poi_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "poi",
+      "paint": {
+        "line-color": "rgb(85,204,68)"
+      }
+    },
+    {
+      "id": "poi_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "poi",
+      "paint": {
+        "circle-color": "rgb(85,204,68)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "poi_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "poi",
+      "paint": {
+        "fill-color": "rgb(85,204,68)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "aerodrome_label_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "aerodrome_label",
+      "paint": {
+        "line-color": "rgb(221,187,153)"
+      }
+    },
+    {
+      "id": "aerodrome_label_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "aerodrome_label",
+      "paint": {
+        "circle-color": "rgb(221,187,153)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "aerodrome_label_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "aerodrome_label",
+      "paint": {
+        "fill-color": "rgb(221,187,153)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "globallandcover_line",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "globallandcover",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(68,136,102)"
+      }
+    },
+    {
+      "id": "globallandcover_point",
+      "type": "circle",
+      "source": "v3",
+      "source-layer": "globallandcover",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(68,136,102)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "globallandcover_polygon",
+      "type": "fill",
+      "source": "v3",
+      "source-layer": "globallandcover",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "rgb(68,136,102)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    }
+  ],
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "bearing": 0.0,
+  "pitch": 0.0,
+  "center": [
+    95.39201631420269,
+    55.9035063599751
+  ],
+  "zoom": 11.173121417702072
+}

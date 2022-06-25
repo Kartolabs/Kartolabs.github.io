@@ -1,0 +1,132 @@
+{
+  "version": 8,
+  "id": "a7c1beed-24a2-41c2-96eb-a9d64ef6fc46",
+  "name": "Countries",
+  "sources": {
+    "countries": {
+      "url": "https://api.maptiler.com/tiles/countries/tiles.json?key={oIV6cbBO2VBle25Ja27n}",
+      "type": "vector"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#ffffff"
+      }
+    },
+    {
+      "id": "administrative_line",
+      "type": "line",
+      "source": "countries",
+      "source-layer": "administrative",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(136,153,119)"
+      }
+    },
+    {
+      "id": "administrative_point",
+      "type": "circle",
+      "source": "countries",
+      "source-layer": "administrative",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(136,153,119)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "administrative_polygon",
+      "type": "fill",
+      "source": "countries",
+      "source-layer": "administrative",
+      "paint": {
+        "fill-color": "rgba(31, 147, 234, 0.62)",
+        "fill-opacity": {
+          "stops": [
+            [
+              6,
+              0.6
+            ],
+            [
+              10,
+              0.6
+            ]
+          ]
+        }
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "postal_line",
+      "type": "line",
+      "source": "countries",
+      "source-layer": "postal",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(187,153,119)"
+      }
+    },
+    {
+      "id": "postal_point",
+      "type": "circle",
+      "source": "countries",
+      "source-layer": "postal",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(187,153,119)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "postal_polygon",
+      "type": "fill",
+      "source": "countries",
+      "source-layer": "postal",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "rgb(187,153,119)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    }
+  ],
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "bearing": 0.0,
+  "pitch": 0.0,
+  "center": [
+    0.0,
+    0.0
+  ],
+  "zoom": 1.0
+}
