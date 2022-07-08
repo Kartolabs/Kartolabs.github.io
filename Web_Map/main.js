@@ -50,13 +50,13 @@ function init(){
       zoom: 8,
       minZoom: 8,
       rotation: 0.5,
-      projection:'EPSG:32640',
-      //projection:'EPSG:4326'
+      // projection:'EPSG:32640',
+      // projection:'EPSG:4326'
     })
   });
 
   // Parameters
-  extentMap = [386947,6416615,497303,6482519];
+  extentMap = [3081957,-2562334,3559156,-2245167];
 
   // Map object
   const map = new ol.Map({
@@ -64,13 +64,13 @@ function init(){
       extent: extentMap,
       //extent: ol.proj.transformExtent([55.408203953679255, 57.99200420598309, 56.29979683132314, 57.99200420598309], 'EPSG:4326', 'EPSG:32640')
       //center: ol.proj.fromLonLat([55.765946,58.080916]),
-      center: [427049, 6438505],
-      zoom: 14.78,
+      center: [3272018, -2436727],
+      zoom: 8,
       maxZoom: 17,
       minZoom: 5,
       rotation: 0.2,
       //projection: 'EPSG:4326',
-      projection:'EPSG:32640'
+      // projection:'EPSG:32640'
     }),
     layers: [
       new ol.layer.Tile({
@@ -438,14 +438,14 @@ const stamenToner = new ol.layer.Tile({
   })
 
   // Vegetation Layer
-  const vegetationGeoJSON = new ol.layer.VectorImage({
+  const umzingwaneGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
-      url: './data/vectors/vegetation.geojson',
+      url: './data/vectors/Umzingwane.geojson',
       format: new ol.format.GeoJSON(),
-      projection:'EPSG:32640'
+      projection:'EPSG:32735'
     }),
     visible: false,
-    title: 'Vegetation',
+    title: 'catchment',
     style: new ol.style.Style({
       fill: fillStyle
     })
@@ -547,7 +547,7 @@ const stamenToner = new ol.layer.Tile({
   // Thematic Layers Group
   const layerGroup = new ol.layer.Group({
     layers: [
-      roadsGeoJSON, vegetationGeoJSON, sportsGeoJSON,tourismGeoJSON,shopsGeoJSON, 
+      roadsGeoJSON, umzingwaneGeoJSON, sportsGeoJSON,tourismGeoJSON,shopsGeoJSON, 
       tileDebugLayer, coordinateGrid, imageFragmentStatic1, imageFragmentStatic2
     ]
   })
@@ -688,28 +688,28 @@ const stamenToner = new ol.layer.Tile({
         }
       })
     })
-    const clickElementVegetation = document.querySelector('.overlay-container-Vegetation');
-    const clickoverlayVegetation = new ol.Overlay({
-      element: clickElementVegetation
+    const clickElementcatchment = document.querySelector('.overlay-container-catchment');
+    const clickoverlaycatchment = new ol.Overlay({
+      element: clickElementcatchment
       })
-      map.addOverlay(clickoverlayVegetation);
+      map.addOverlay(clickoverlaycatchment);
   
-    const overlayVegetationType = document.getElementById('vegetation-type-info');
-    const overlayVegOSMID = document.getElementById('vegetation-OSMID-info');
+    const overlaycatchmentName = document.getElementById('catchment-name-info');
+    const overlaycatchmentArea = document.getElementById('catchment-area');
   
     map.on('click', function(e){
-      clickoverlayVegetation.setPosition(undefined);
+      clickoverlaycatchment.setPosition(undefined);
         map.forEachFeatureAtPixel(e.pixel, function(feature, layer){
           let clickedCoordinate = e.coordinate;
-          let clickedVegetationType = feature.get('natural')
-          let clickedVegetationOSMID = feature.get('osm_id')     
-          clickoverlayVegetation.setPosition(clickedCoordinate);
-          overlayVegetationType.innerHTML = 'Тип.растительности: ' + clickedVegetationType;
-          overlayVegOSMID.innerHTML = 'OSM ID: ' + clickedVegetationOSMID;
+          let clickedcatchmentName = feature.get('Name')
+          let clickedcatchmentArea = feature.get('Area')     
+          clickoverlaycatchment.setPosition(clickedCoordinate);
+          overlaycatchmentName.innerHTML = 'Name: ' + clickedcatchmentName;
+          overlaycatchmentArea.innerHTML = 'Area: ' + clickedcatchmentArea +'km²';
         },
         {
           layerFilter: function(layerCandidate){
-            return layerCandidate.get('title') === 'Vegetation';
+            return layerCandidate.get('title') === 'catchment';
           }
         })
       })
