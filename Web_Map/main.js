@@ -437,7 +437,7 @@ const stamenToner = new ol.layer.Tile({
     title: 'Roads',
   })
 
-  // Vegetation Layer
+  // Umzingwane Catchment Area Layer
   const umzingwaneGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
       url: './data/vectors/Umzingwane.geojson',
@@ -453,17 +453,16 @@ const stamenToner = new ol.layer.Tile({
 
   // Points of Interest Layer
 
-  const tourismGeoJSON = new ol.layer.VectorImage({
+  const subcatchmentGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
-      url: './data/vectors/tourism.geojson',
+      url: './data/vectors/subcatchment.geojson',
       format: new ol.format.GeoJSON()
     }),
-    style: new ol.style.Style({
-      image:tourismMarkerStyle
-      
-    }),
     visible: false,
-    title: 'tourism'
+    title: 'subcatchment',
+    style: new ol.style.Style({
+      fill: fillStyle
+    })
   })
 
   const sportsGeoJSON = new ol.layer.VectorImage({
@@ -536,18 +535,18 @@ const stamenToner = new ol.layer.Tile({
   // Static Image Layer (observing location Perm-01)
   const imageFragmentStatic2 = new ol.layer.Image ({
     source: new ol.source.ImageStatic ({
-      url: './data/rasters/Perm-01_loc.png',
-      imageExtent: [6242908, 7976146, 6243131, 7976357],
-      attributions: '© Yandex'
+      url: './data/rasters/soil_risk.tif',
+      imageExtent: [3081957,-2562334,3559156,-2245167],
+      attributions: '© Kartolabs'
     }),
     visible: false,
-    title: 'ImageStatic-2'
+    title: 'hotspots'
   })
 
   // Thematic Layers Group
   const layerGroup = new ol.layer.Group({
     layers: [
-      roadsGeoJSON, umzingwaneGeoJSON, sportsGeoJSON,tourismGeoJSON,shopsGeoJSON, 
+      roadsGeoJSON, umzingwaneGeoJSON, sportsGeoJSON,subcatchmentGeoJSON,shopsGeoJSON, 
       tileDebugLayer, coordinateGrid, imageFragmentStatic1, imageFragmentStatic2
     ]
   })
