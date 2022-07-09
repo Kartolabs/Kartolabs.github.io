@@ -1,10 +1,16 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  /* margin: 0;
+  padding: 0; */
 }
 
 .grid-container {
@@ -14,13 +20,21 @@ body {
 }
 
 .grid-1 {
-  background-color: rgba(7, 252, 97, 0.8);
+  /* height: 100%;
+  width: 240px;
+  background: #11101d;
+  padding: 6px 14px; */
+  /* background-color: rgba(7, 252, 97, 0.8); */
   
 
 }
 
 .sidebar {
-  margin-top: 5px;
+  height: 100%;
+  width: 240px;
+  background: #11101d;
+  padding: 6px 14px;
+  /* margin-top: 5px;
   margin-left: 1px;
   margin-right: 2px;
   border-radius: 10px;
@@ -30,9 +44,61 @@ body {
   color: blue;
   font-family:Georgia, 'Times New Roman', Times, serif ;
   font-size: 12px;
-  font-weight: bolder;
+  font-weight: bolder; */
   }
+.sidebar .logo_content .logo{
+  color:#fff;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+}
+.logo_content .longo_name{
+  font-size: 20px;
+  font-weight: 400;
+}
+.sidebar #btn{
+  position: absolute;
+  color: #fff;
+  left: 90%;
+  top: 6px;
+  font-size: 20px;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  transform: translateX(-60%);
+}
+.sidebar ul{
+  margin: 20px;
+}
+.sidebar ul li{
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+}
+.sidebar ul li a{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.sidebar ul li a:hover{
+  color: #11101d;
+  background: #fff;
 
+}
+.sidebar ul li a i{
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+
+
+}
 .map {
   height: 100vh;
   width: 85vw;

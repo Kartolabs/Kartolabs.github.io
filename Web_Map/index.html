@@ -10,11 +10,59 @@
 -->
   <link rel="stylesheet" href="./libs/v6.14.1-dist/ol.css">
   <link rel="stylesheet" href="./styles.css">
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
   <div class="grid-container">
     <div class="grid-1">
       <div class="sidebar">
+        <div class="logo_content">
+          <div class="logo">
+            <div class="longo_name"> KARTOLABS </div>
+          </div>
+          <i class='bx bx-menu' id="btn"></i>
+          
+        </div>
+        <ul class="nav_list">
+          <li>
+            <a href="#">
+              <i class='bx bx-search'></i>
+              <input type="text" placeholder="Search...">
+            </a>
+            <!-- <span class="tool_tip"> Dashboad</span> -->
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-map-alt'></i>
+              <span class="link_names"> Base Map</span>
+            </a>
+            <!-- <span class="tool_tip"> Dashboad</span> -->
+          </li>
+          
+          <li>
+            <a href="#">
+              <i class='bx bxs-chess'></i>
+              <span class="link_names"> Soil erosion</span>
+            </a>
+            <!-- <span class="tool_tip"> Dashboad</span> -->
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bxs-tree' ></i>
+              <span class="link_names"> Landuse/Landcover</span>
+            </a>
+            <!-- <span class="tool_tip"> Dashboad</span> -->
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bxs-dashboard' ></i>
+              <span class="link_names"> Dashboad</span>
+            </a>
+            <!-- <span class="tool_tip"> Dashboad</span> -->
+          </li>
+        </ul>
+        
         <h2>Базовые слои</h2>
         <input type="radio" name="baseLayerRadioButton" value="OSMStand" checked>OSM Standard<br>
         <!-- <input type="radio" name="baseLayerRadioButton" value="OSMHuman">OSM Humanitarian<br>
