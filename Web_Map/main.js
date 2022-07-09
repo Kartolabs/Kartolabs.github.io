@@ -375,6 +375,40 @@ const stamenToner = new ol.layer.Tile({
   // Thematic Layers
   // *********************************************
   // STYLES
+  // SUBCATCHMENT STYLE
+  var getStyle = function (feature, resolution) {
+    if (feature.get('SubCatchme') =='Lower Mzingwane') {
+        return new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: [255, 0, 0, 0.5] // semi-transparent red
+            })
+        });
+    }
+
+    if (feature.get('SubCatchme') =='Shashe') {
+        return new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: [124, 252, 0, 0.5] // semi-transparent red
+            })
+        });
+    }
+    if (feature.get('SubCatchme') =='Mwenezi') {
+        return new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: [75, 0, 130, 0.5] // semi-transparent red
+            })
+        });
+    }
+      
+    // else if ...
+    else {
+        return new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: [255, 0, 255, 0.5] // semi-transparent yellow
+            })
+        });
+    }
+};
   const fillStyle = new ol.style.Fill({
     color: [9, 122, 41, 1]
   })
@@ -447,7 +481,13 @@ const stamenToner = new ol.layer.Tile({
     visible: false,
     title: 'catchment',
     style: new ol.style.Style({
-      fill: fillStyle
+      fill: new ol.style.Fill({
+        color: 'rgba(255,255,255,0.4)'
+      }),
+      stroke: new ol.style.Stroke({
+        color:'black',
+        width: 3
+      })
     })
   })
 
@@ -460,23 +500,26 @@ const stamenToner = new ol.layer.Tile({
     }),
     visible: false,
     title: 'subcatchment',
+    // style: new ol.style.Style({
+    //   fill: fillStyle
+    // })
+    style: function (feature, resolution) {
+      return getStyle(feature, resolution);
+    }
+  });
+
+  const wardsGeoJSON = new ol.layer.VectorImage({
+    source: new ol.source.Vector({
+      url: './data/vectors/wards.geojson',
+      format: new ol.format.GeoJSON(),
+      projection:'EPSG:32735'
+    }),
+    visible: false,
+    title: 'wards',
     style: new ol.style.Style({
       fill: fillStyle
     })
   })
-
-  const sportsGeoJSON = new ol.layer.VectorImage({
-    source: new ol.source.Vector({
-      url: './data/vectors/sport.geojson',
-      format: new ol.format.GeoJSON()
-    }),
-    style: new ol.style.Style({
-      image:sportMarkerStyle
-    }),
-    visible: false,
-    title: 'sports'
-  })
-
   const shopsGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
       url: './data/vectors/Shops.geojson',
@@ -546,7 +589,7 @@ const stamenToner = new ol.layer.Tile({
   // Thematic Layers Group
   const layerGroup = new ol.layer.Group({
     layers: [
-      roadsGeoJSON, umzingwaneGeoJSON, sportsGeoJSON,subcatchmentGeoJSON,shopsGeoJSON, 
+      roadsGeoJSON, umzingwaneGeoJSON, wardsGeoJSON,subcatchmentGeoJSON,shopsGeoJSON, 
       tileDebugLayer, coordinateGrid, imageFragmentStatic1, imageFragmentStatic2
     ]
   })
@@ -635,58 +678,51 @@ const stamenToner = new ol.layer.Tile({
     })
     map.removeOverlay(popup);
   })
-  const overlayContainerElement = document.querySelector('.overlay-container');
-  const overlayLayer = new ol.Overlay({
-    element: overlayContainerElement
-  })
-  map.addOverlay(overlayLayer);
+  // const overlayContainerElement = document.querySelector('.overlay-container');
+  // const overlayLayer = new ol.Overlay({
+  //   element: overlayContainerElement
+  // })
+  // map.addOverlay(overlayLayer);
 
-  const overlayroadName = document.getElementById('local-forestry-name');
-  const overlayroadType = document.getElementById('local-forestry-area');
+  // const overlayName = document.getElementById('local-provinceName');
+  // const overlaydistrictName = document.getElementById('local-districtName');
+  // const overlaywardNumber = document.getElementById('local-minValue');
+  // const overlaywardArea = document.getElementById('local-maxValue');
+  // const overlayminValue = document.getElementById('local-meanValue');
+  // const overlaymaxValue = document.getElementById('local-wardNumber');
+  // const overlaymeanValue = document.getElementById('local-wardArea');
 
   
   //map.on('click', function(e){
-  map.on('pointermove', function(e){
-    overlayLayer.setPosition(undefined);
-    map.forEachFeatureAtPixel(e.pixel, function(feature, layer){
-      let clickedCoordinate = e.coordinate;
-      let roadName = feature.get('name');
-      let roadType= feature.get('highway');
-//      if(clickedLocalForestryName && clickedLocalForestryArea != undefined){
-        overlayLayer.setPosition(clickedCoordinate);
-        overlayroadName.innerHTML = 'Наз.дороги: ' + roadName;
-        overlayroadType.innerHTML = 'Тип.дороги: ' + roadType;
-//      }
-    },
-    {
-      layerFilter: function(layerCandidate){
-        return layerCandidate.get('title') === 'Roads'
-      }
-    })
-  })
-  const clickElement = document.querySelector('.overlay-container-tourism');
-  const clickoverlayLayer = new ol.Overlay({
-    element: clickElement
-  })
-  map.addOverlay(clickoverlayLayer);
-
-  const overlaytouristfacility = document.getElementById('tourist-facility-info');
-  map.on('click', function(e){
-    clickoverlayLayer.setPosition(undefined);
-      map.forEachFeatureAtPixel(e.pixel, function(feature, layer){
-        let clickedCoordinate = e.coordinate;
-        let clickedtourist = feature.get('tourism'); 
-        if(clickedtourist != undefined){
-          clickoverlayLayer.setPosition(clickedCoordinate);
-          overlaytouristfacility.innerHTML = clickedtourist;
-       }
-      },
-      {
-        layerFilter: function(layerCandidate){
-          return layerCandidate.get('title') === 'tourism';
-        }
-      })
-    })
+  // map.on('pointermove', function(e){
+  //   overlayLayer.setPosition(undefined);
+  //   map.forEachFeatureAtPixel(e.pixel, function(feature, layer){
+  //     let clickedCoordinate = e.coordinate;
+    //   let provinceName = feature.get('PROVINCE');
+    //   let districtName= feature.get('DISTRICT');
+    //   let minValue = feature.get('MIN_1');
+    //   let maxValue= feature.get('MAX_1');
+    //   let meanValue = feature.get('MEAN_1');
+    //   let wardNumber= feature.get('WARDNUMBER');
+    //   let wardArea = feature.get('Area');
+    
+    //  if(clickedLocalForestryName && clickedLocalForestryArea != undefined){
+    //     overlayLayer.setPosition(clickedCoordinate);
+    //     overlayprovinceName.innerHTML = 'PROVINCE: ' + PROVINCE;
+    //     overlaydistrictName.innerHTML = 'DISTRICT: ' + DISTRICT;
+    //     overlaywardNumber.innerHTML = 'WARD: ' + WARDNUMBER;
+    //     overlaywardArea.innerHTML = 'WARD AREA: ' + Area;
+    //     overlayminValue.innerHTML = 'MIN SOILLOSS: ' + MIN_1 +'t/ha/yr';
+    //     overlaymaxValue.innerHTML = 'MAX SOILLOSS: ' + MAX_1 +'t/ha/yr';
+    //     overlaymeanValue.innerHTML = 'MEAN SOILLOSS: ' + MEAN_1 +'t/ha/yr';
+    
+    // },
+    // {
+    //   layerFilter: function(layerCandidate){
+    //     return layerCandidate.get('title') === 'wards'
+    //   }
+  //   })
+  // })
     const clickElementcatchment = document.querySelector('.overlay-container-catchment');
     const clickoverlaycatchment = new ol.Overlay({
       element: clickElementcatchment
@@ -712,6 +748,42 @@ const stamenToner = new ol.layer.Tile({
           }
         })
       })
+
+const clickElementwards = document.querySelector('.overlay-container-wards');
+    const clickoverlaywards = new ol.Overlay({
+      element: clickElementwards
+      })
+      map.addOverlay(clickoverlaywards);
+  
+    const overlaywardProvince = document.getElementById('province-name-info');
+    const overlaywardDistrict = document.getElementById('ward-district-info');
+    const overlayWardNumber = document.getElementById('local-wardNumber');
+    overlaywardArea = document.getElementById('local-ward-area');
+    const overlaymeanValue = document.getElementById('local-Mean-Value');
+  
+    map.on('click', function(e){
+      clickoverlaywards.setPosition(undefined);
+        map.forEachFeatureAtPixel(e.pixel, function(feature, layer){
+          let clickedCoordinate = e.coordinate;
+          let clickedwardProvince = feature.get('PROVINCE')
+          let clickedwardDistrict = feature.get('DISTRICT')
+          let clickedmeanValue = feature.get('MEAN_1');   
+          let clickedwardNumber = feature.get('WARDNUMBER'); 
+          let clickedWardArea = feature.get('Area');   
+          clickoverlaywards.setPosition(clickedCoordinate);
+          overlaywardProvince.innerHTML = 'PROVINCE: ' + clickedwardProvince;
+          overlaywardDistrict.innerHTML = 'DISTRICT: ' + clickedwardDistrict;
+          overlaymeanValue.innerHTML = 'MEAN SOILLOSS: ' + clickedmeanValue.toFixed(2) +'t/ha/yr';
+          overlayWardNumber.innerHTML = 'WARD: ' + clickedwardNumber;
+          overlaywardArea.innerHTML = 'WARD AREA: ' + clickedWardArea.toFixed(2)+'km²'; 
+
+        },
+        {
+          layerFilter: function(layerCandidate){
+            return layerCandidate.get('title') === 'wards';
+          }
+        })
+      })            
   const clickElementShops = document.querySelector('.overlay-container-Shops');
   const clickoverlayShops = new ol.Overlay({
     element: clickElementShops
@@ -748,7 +820,7 @@ const stamenToner = new ol.layer.Tile({
       clickoverlaySport.setPosition(undefined);
         map.forEachFeatureAtPixel(e.pixel, function(feature, layer){
           let clickedCoordinate = e.coordinate;
-          let clickedSport = feature.get('name')    
+          let clickedSport = feature.get('PROVINCE')    
           if(clickedSport != undefined){
             clickoverlaySport.setPosition(clickedCoordinate);
             overlaysport.innerHTML = clickedSport;
@@ -756,7 +828,7 @@ const stamenToner = new ol.layer.Tile({
         },
         {
           layerFilter: function(layerCandidate){
-            return layerCandidate.get('title') === 'sports';
+            return layerCandidate.get('title') === 'wards';
           }
         })
       });

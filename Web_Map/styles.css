@@ -147,7 +147,7 @@ position:fixed;
   border-radius: 0.5em;
 }
 
-.overlay-container, .overlay-container-Shops, .overlay-container-tourism, .overlay-container-sport, .overlay-container-catchment {
+.overlay-container-wards, .overlay-container-catchment {
   text-align: center;
   font-size: large;
   padding: 4px 4px;
