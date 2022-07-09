@@ -409,6 +409,41 @@ const stamenToner = new ol.layer.Tile({
         });
     }
 };
+var getStyle2 = function (feature, resolution) {
+  if (feature.get('MEAN_1')>=8) {
+      return new ol.style.Style({
+          fill: new ol.style.Fill({
+              color: [255, 0, 0,0.4], // semi-transparent red
+          }),
+          stroke: new ol.style.Stroke({
+            color:'Black'
+          }),          
+      });
+  }
+
+  if (feature.get('MEAN_1')<=3)  {
+      return new ol.style.Style({
+          fill: new ol.style.Fill({
+              color: [0, 255, 0,0.4] // semi-transparent red
+          }),
+          stroke: new ol.style.Stroke({
+            color:'Black'
+          }),             
+      });
+  }
+  // else if ...
+  else {
+      return new ol.style.Style({
+          fill: new ol.style.Fill({
+              color: [255, 255, 0,0.4] // semi-transparent yellow
+          }),
+          stroke: new ol.style.Stroke({
+            color:'Black'
+          }),
+      });
+  }
+};
+
   const fillStyle = new ol.style.Fill({
     color: [9, 122, 41, 1]
   })
@@ -516,9 +551,12 @@ const stamenToner = new ol.layer.Tile({
     }),
     visible: false,
     title: 'wards',
-    style: new ol.style.Style({
-      fill: fillStyle
-    })
+    // style: new ol.style.Style({
+    //   fill: fillStyle
+    // })
+    style: function (feature, resolution) {
+      return getStyle2(feature, resolution);
+    }
   })
   const shopsGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
@@ -723,6 +761,32 @@ const stamenToner = new ol.layer.Tile({
     //   }
   //   })
   // })
+    const clickElementsubcatch = document.querySelector('.overlay-container-subcatchment');
+    const clickoverlaysubcatch = new ol.Overlay({
+      element: clickElementsubcatch
+      })
+      map.addOverlay(clickoverlaysubcatch);
+  
+    const overlaysubcatchName = document.getElementById('subcatchment-name-info');
+    const overlaysubcatchArea = document.getElementById('subcatchment-area');
+  
+    map.on('click', function(e){
+      clickoverlaysubcatch.setPosition(undefined);
+        map.forEachFeatureAtPixel(e.pixel, function(feature, layer){
+          let clickedCoordinate = e.coordinate;
+          let clickedsubcatchName = feature.get('SubCatchme')
+          let clickedsubcatchArea = feature.get('Area')     
+          clickoverlaysubcatch.setPosition(clickedCoordinate);
+          overlaysubcatchName.innerHTML = 'Name: ' + clickedsubcatchName +' SubCatchment';
+          overlaysubcatchArea.innerHTML = 'Area: ' + clickedsubcatchArea +'km²';
+        },
+        {
+          layerFilter: function(layerCandidate){
+            return layerCandidate.get('title') === 'subcatchment';
+          }
+        })
+      })
+
     const clickElementcatchment = document.querySelector('.overlay-container-catchment');
     const clickoverlaycatchment = new ol.Overlay({
       element: clickElementcatchment
