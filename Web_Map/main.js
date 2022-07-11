@@ -778,7 +778,7 @@ var getStyle2 = function (feature, resolution) {
           let clickedsubcatchArea = feature.get('Area')     
           clickoverlaysubcatch.setPosition(clickedCoordinate);
           overlaysubcatchName.innerHTML = 'Name: ' + clickedsubcatchName +' SubCatchment';
-          overlaysubcatchArea.innerHTML = 'Area: ' + clickedsubcatchArea +'km²';
+          overlaysubcatchArea.innerHTML = 'Area: ' + clickedsubcatchArea.toFixed(2) +'km²';
         },
         {
           layerFilter: function(layerCandidate){
