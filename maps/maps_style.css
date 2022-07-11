@@ -1,0 +1,57 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.rusle-model{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.rusle-model img{
+  width: 550px;
+  height: auto;
+  margin: 5px;
+  border: 6px double black;
+
+}
+.tasks{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.tasks img{
+  width: 550px;
+  height: auto;
+  margin: 5px;
+  border: 6px double black;
+
+}
+.practice{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.practice img{
+  width: 550px;
+  height: auto;
+  margin: 5px;
+  border: 6px double black;
+
+}
