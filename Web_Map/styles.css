@@ -94,9 +94,15 @@ body {
 .sidebar h2{
   font-size: 20px;
   color: #fff;
- 
+  text-align:center
 }
-
+.sidebar .sidebar-background img{
+  width: 100%;
+  padding-top: 25px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 5px;
+}
 .sidebar ul{
   margin: 20px;
 }

@@ -1,6 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo+Black&family=Lobster&family=Poppins:wght@200;300;400;500;600;700&display=swap');
 /*
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
@@ -21,6 +21,7 @@ section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	font-family: 'Poppins', sans-serif;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;}
@@ -84,7 +85,7 @@ input, select, textarea {
 
 	body {
 		background: #fff;
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'Poppins', sans-serif;
 		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
@@ -103,7 +104,7 @@ input, select, textarea {
 		}
 
 	input, textarea, select {
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'Poppins', sans-serif;
 		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
@@ -1755,9 +1756,15 @@ input, select, textarea {
 		}
 
 		.image.avatar48 {
-			width: 48px;
+			/* width: 48px;
 			height: 48px;
-			background: #f00;
+			background: #f00; */
+			height: 30px;
+			width: 30 px;
+			object-fit: cover;
+			border-radius: 12;
+			margin: 5px;
+			
 		}
 
 			.image.avatar48 img {
@@ -1923,7 +1930,7 @@ input, select, textarea {
 			text-align: left;
 			padding: 0.5em 1em 0.5em 1em;
 			color: #fff;
-			background: #222729 url("images/overlay.png");
+			background: #222729 url("./images/overlay.png");
 		}
 
 		table thead {
@@ -2099,13 +2106,14 @@ input, select, textarea {
 		margin: 1.75em 1.5em 1.5em 1.5em;
 		min-height: 48px;
 		cursor: default;
+
 	}
 
 		#logo h1 {
 			position: relative;
 			color: #fff;
 			font-weight: 600;
-			font-size: 1em;
+			font-size: 18px;
 			line-height: 1em;
 		}
 
@@ -2248,7 +2256,8 @@ input, select, textarea {
 
 			#main > section.one {
 				background-color: #81918E;
-				background-image: url("../../images/banner1.jpg");
+				background-image: url("../../images/cover2.jpg");
+
 			}
 
 			#main > section.two {
