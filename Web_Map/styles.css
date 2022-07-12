@@ -294,7 +294,7 @@ text-align: center;
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-}
+
 
 .ol-rotate {
   top: 3em;
@@ -333,6 +333,7 @@ text-align: center;
   margin: 0.5em;
   border-radius: 0.5em;
 }
+
 
 /* .sub-menu-1 {
   display: none;
