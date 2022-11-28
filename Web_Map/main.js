@@ -831,13 +831,13 @@ const clickElementwards = document.querySelector('.overlay-container-wards');
           let clickedCoordinate = e.coordinate;
           let clickedwardProvince = feature.get('PROVINCE')
           let clickedwardDistrict = feature.get('DISTRICT')
-          let clickedmeanValue = feature.get('MEAN_1');   
+          let clickedmeanValue = feature.get('risk');   
           let clickedwardNumber = feature.get('WARDNUMBER'); 
           let clickedWardArea = feature.get('Area');   
           clickoverlaywards.setPosition(clickedCoordinate);
           overlaywardProvince.innerHTML = 'PROVINCE: ' + clickedwardProvince;
           overlaywardDistrict.innerHTML = 'DISTRICT: ' + clickedwardDistrict;
-          overlaymeanValue.innerHTML = 'MEAN SOILLOSS: ' + clickedmeanValue.toFixed(2) +'t/ha/yr';
+          overlaymeanValue.innerHTML = 'MEAN SOILLOSS: ' + clickedmeanValue +'Soil loss risk';
           overlayWardNumber.innerHTML = 'WARD: ' + clickedwardNumber;
           overlaywardArea.innerHTML = 'WARD AREA: ' + clickedWardArea.toFixed(2)+'km²'; 
 
