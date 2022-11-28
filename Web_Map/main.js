@@ -837,7 +837,7 @@ const clickElementwards = document.querySelector('.overlay-container-wards');
           clickoverlaywards.setPosition(clickedCoordinate);
           overlaywardProvince.innerHTML = 'PROVINCE: ' + clickedwardProvince;
           overlaywardDistrict.innerHTML = 'DISTRICT: ' + clickedwardDistrict;
-          overlaymeanValue.innerHTML = 'MEAN SOILLOSS: ' + clickedmeanValue +'Soil loss risk';
+          overlaymeanValue.innerHTML = 'Erosion Risk: ' + clickedmeanValue;
           overlayWardNumber.innerHTML = 'WARD: ' + clickedwardNumber;
           overlaywardArea.innerHTML = 'WARD AREA: ' + clickedWardArea.toFixed(2)+'km²'; 
 
