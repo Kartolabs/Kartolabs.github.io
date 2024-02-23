@@ -6,12 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./maps_style.css" />
+  <style>
+    .image-container {
+      position: relative;
+      display: inline-block;
+    }
+    .image-container img {
+      width: 100%;
+      height: auto;
+    }
+    .image-container .image-description {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 5px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
   <div class="rusle-model">
-    <!-- <h3>RUSLE MODEL</h3> -->
-    <img src="./erosion/RFACTOR.jpg" alt="">
-    <img src="./erosion/Precipitation.jpg" alt="">
+    <div class="rusle-model">
+    <div class="image-container">
+      <img src="./erosion/RFACTOR.jpg" alt="">
+      <div class="image-description">RFACTOR - Description of the image</div>
+    </div>
+    <div class="image-container">
+      <img src="./erosion/Precipitation.jpg" alt="">
+      <div class="image-description">Precipitation - Description of the image</div>
+    </div>
     <img src="./erosion/LS FACTOR.jpg" alt="">
     <img src="./erosion/Slope2.jpg" alt="">
     <img src="./erosion/FA.jpg" alt="">
